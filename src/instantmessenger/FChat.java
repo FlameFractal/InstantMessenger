@@ -5,7 +5,6 @@
  */
 package instantmessenger;
 
-import static instantmessenger.InstantMessenger.database;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -135,16 +134,10 @@ public class FChat extends javax.swing.JFrame {
 
     private void btnLeaveChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeaveChatActionPerformed
         try {
-            msgS.send("qwert345");
             friends.setVisible(true);
             this.setVisible(false);
             sock.close();
-<<<<<<< HEAD
-            InstantMessenger.server = null;
-            InstantMessenger.server = new Serv(6789, database);
-=======
             InstantMessenger.server.start();
->>>>>>> origin/master
             InstantMessenger.remUser = null;
         } catch (IOException ex) {
         }

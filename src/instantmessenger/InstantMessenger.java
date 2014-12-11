@@ -28,11 +28,8 @@ public class InstantMessenger {
     public static void main(String[] args) {
         try {
             database = new dataBase();
-            //System.out.println(database.dbIP);
             server = new Serv(6789, database);
             server.start();
-            System.out.println("DEBUG");
-            
             loginPage.getFrames(Frn, chatPage, database);
             Frn.getFrames(loginPage, chatPage);
             chatPage.getFrames(Frn, loginPage, database);

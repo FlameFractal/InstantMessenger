@@ -5,8 +5,6 @@
  */
 package instantmessenger;
 
-import static instantmessenger.InstantMessenger.database;
-import static instantmessenger.InstantMessenger.server;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -31,14 +29,6 @@ public class msgRecv extends Thread{
             DataInputStream inp = new DataInputStream(sock.getInputStream());
             while(true){
                 msg = inp.readUTF();
-                if(msg.equals("qwert345")){
-                    InstantMessenger.Frn.setVisible(true);
-                    InstantMessenger.chatPage.setVisible(false);
-                    sock.close();
-                    InstantMessenger.server = null;
-                    InstantMessenger.server = new Serv(6789, database);
-                    break;
-                }
                 InstantMessenger.chatPage.msgArea.append(frnd+": "+msg+"\n");
             }
         } catch (IOException ex) {
